@@ -1,0 +1,536 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Byte Crafters</title>
+    <link rel="icon" href="favicon-32x32.png">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css">
+    <script type="text/javascript"
+        src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js">
+</script>
+<script src="exe4.js"></script>
+<script type="text/javascript">
+   (function(){
+      emailjs.init(
+        "XLP57sReDekEl1pAQ"
+      );
+   })();
+</script>
+
+    <style>
+        body {
+            background: none;
+            font-family: 'Arial', sans-serif;
+        }
+        .navbar {
+            background-color: rgba(255, 255, 255, 0.9);
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            border-radius: 0 0 15px 15px;
+            padding: 0.75rem 2rem;
+        }
+        .navbar-brand {
+            font-weight: bold;
+            color: #4058e0;
+            font-size: 1.5rem;
+        }
+        .nav-link {
+            font-size: 1.1rem;
+            color: #4058e0 !important;
+            margin: 0 10px;
+            transition: color 0.3s ease;
+        }
+        .nav-link:hover {
+            color: #9ad3ff !important;
+        }
+        .header-section {
+            min-height: 100vh;
+            padding-top: 5rem;
+            position: relative;
+            /* background: linear-gradient(135deg, #7de191 0%, #094727 100%); */
+        }
+        .profile-image {
+            width: 350px;   
+            height: 350px;
+            object-fit: cover;
+            border-radius: 50%;
+            border: 5px solid #fff;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+
+        }
+        
+        .about-section {
+            height: 100%;
+            padding: 20px;
+            background: rgba(255, 255, 255, 0.9);
+            border-radius: 15px;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+            animation: slideInRight 1.5s ease-out;
+        }
+        .about-section:hover {
+            transform: scale(1.05);
+            box-shadow: 0 6px 15px rgba(0, 0, 0, 0.3);
+        }
+        
+        .for-heading {
+            animation: slidedown 1.5s ease-out;
+        }
+        @keyframes slidedown {
+            0% {
+                opacity: 0;
+                transform: translateY(-50px);
+            }
+            100% {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        .for-img {
+            animation: slideInLeft 1.5s ease-out;
+        }
+        @keyframes slideInLeft {
+            0% { transform: translateX(-100px); }
+            70% { transform: translateX(10px); }
+            85% { transform: translateX(-5px); }
+            100% { transform: translateX(0); }
+        }
+        @keyframes slideInRight {
+            0% { transform: translateX(100px); }
+            70% { transform: translateX(-10px); }
+            85% { transform: translateX(5px); }
+            100% { transform: translateX(0); }
+        }
+        .skills div {
+            opacity: 0;
+            min-width: 350px;
+            text-align: center;
+            margin: 50px auto;
+            padding: 10px;
+            background: rgba(255, 255, 255, 0.9);
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+            font-weight: bold;
+            font-size: 1.2rem;
+            position: absolute;
+        }
+        .skills {
+            padding-left: 500px;
+        }
+        .solver { animation: slide 3s ease-out; position: absolute; }
+        @keyframes slide {
+            0% { transform: translateX(-800px); opacity: 0; }
+            50% { transform: translateX(0); opacity: 1; }
+            100% { transform: translateX(800px); opacity: 0; }
+        }
+        .deep { animation: slided 3s ease-out; animation-delay: 3s; position: absolute; }
+        @keyframes slided {
+            0% { transform: translateX(-500px); opacity: 0; }
+            50% { transform: translateX(0); opacity: 1; }
+            100% { transform: translateX(500px); opacity: 0; }
+        }
+        .logic { animation: slidel 3s ease-out; animation-delay: 6s; position: absolute; }
+        @keyframes slidel {
+            0% { transform: translateX(-500px); opacity: 0; }
+            50% { transform: translateX(0); opacity: 1; }
+            100% { transform: translateX(500px); opacity: 0; }
+        }
+        .ai { animation: slideai 3s ease-out; animation-delay: 9s; position: absolute; }
+        @keyframes slideai {
+            0% { transform: translateX(-500px); opacity: 0; }
+            50% { transform: translateX(0); opacity: 1; }
+            100% { transform: translateX(500px); opacity: 0; }
+        }
+        .navbar-nav {
+            margin-left: 899px;
+        }
+        .sec1{
+            background: linear-gradient(0deg,#8dbeeb 0%, #ffff 100%);
+            padding: 50px 0;
+        }
+
+        
+        .skill-set {
+            margin-top: 50px;
+            overflow: hidden;
+        }
+        .skill-set .skill {
+            margin: 20px 0;
+        }
+        .skill-set .skill h4 {
+            margin-bottom: 10px;
+            font-weight: bold;
+            color: #17402a;
+        }
+        .skill-set .bar-container {
+            height: 30px;
+            border-radius: 25px;
+            background-color: #f0f0f0;
+            position: relative;
+            overflow: hidden;
+        }
+        .skill-set .bar {
+            height: 100%;
+            border-radius: 25px;
+            background-color: #4058e0;
+            width: 0%;
+            transition: width 1s ease-out;
+        }
+        .skill-set .percentage {
+            position: absolute;
+            right: 15px;
+            top: 50%;
+            transform: translateY(-50%);
+            font-weight: bold;
+            color: #fff;
+        }
+
+        
+        .for-project {
+            transition: all 0.3s ease-in-out;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+        }
+        .for-project:hover {
+            transform: scale(1.05);
+            box-shadow: 0 6px 15px rgba(0, 0, 0, 0.3);
+        }
+
+        .for-project img {
+            width: 100%;
+            height: auto;
+            object-fit: cover;
+        }
+        .for-project2 {
+            transition: all 0.3s ease-in-out;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+        }
+        .for-project2:hover {
+            transform: scale(1.05);
+            box-shadow: 0 6px 15px rgba(0, 0, 0, 0.3);
+        }
+
+        .for-project2 img {
+            width: 100%;
+            height: auto;
+            object-fit: cover;
+        }
+        .pr1{
+            margin-top: 100px;
+        }
+        .pr2{
+            margin-top: 100px;
+        }
+        .For-img2{
+            filter: blur(1px);
+        }
+        .For-img3{
+            filter: blur(1px);
+        }
+        .sec2{
+            height: 100vh;
+            background: linear-gradient(0deg,#515d68 0%, #8dbeeb 100%);
+            
+        }
+        .sec3{
+            background: linear-gradient(0deg,#22262a 0%, #515d68 100%);
+        }
+        .hover-effect {
+          transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+        .hover-effect:hover {
+          transform: translateX(15px);
+          box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+        }
+        .about-section {
+          transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+        .about-section:hover {
+          transform: translateX(15px);
+          box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+        }
+        .for-img {
+          transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+        .for-img:hover {
+          transform: translateX(15px);
+        }
+       
+        .card:hover {
+          transform: scale(1.05);         
+          box-shadow: 0 12px 24px rgba(0, 0, 0, 0.3);  
+          transition: transform 0.3s ease, box-shadow 0.3s ease;  
+        }
+
+
+        .card img:hover {
+          transform: scale(1.08);       
+          transition: transform 0.3s ease-in-out;  
+          border-radius: 15px; 
+        }
+
+        .card {
+          transition: transform 0.3s ease, box-shadow 0.3s ease;
+          border: none;                  
+        }
+
+       .card:hover {
+         transform: scale(1.05); 
+         box-shadow: 0 12px 24px rgba(0, 0, 0, 0.3);
+         transition: transform 0.3s ease, box-shadow 0.3s ease; 
+        }
+
+
+        .card img:hover {
+         transform: scale(1.08); 
+         transition: transform 0.3s ease-in-out; 
+         border-radius: 15px; 
+        }
+
+
+        .about-hover:hover {
+         background-color: #f0f0f0; 
+         transform: scale(1.05); 
+         box-shadow: 0 12px 24px rgba(0, 0, 0, 0.3);
+         transition: transform 0.3s ease, background-color 0.3s ease, box-shadow 0.3s ease;
+        }
+
+            @keyframes float {
+                0% { transform: translateY(0); }
+                50% { transform: translateY(-20px); }
+                100% { transform: translateY(0); }
+            }
+           .bar:hover {
+            background-color: #357ab7;
+            transform: scale(1.03); 
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+           }
+           .skill:hover h4 {
+            color: #4a90e2;
+            transition: color 0.3s ease;
+           }
+        
+
+
+
+    </style>
+</head>
+<body>
+    <div class="position-absolute w-100"><img style="width: 100%; height: 750px;" src="v915-wit-001.jpg"></div>
+    <nav class="navbar navbar-expand-lg fixed-top w-100 bg-transparent">
+        <div class="container-fluid">
+            <a class="navbar-brand" href="#">Portfolio.</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item">
+                        <a class="nav-link active" aria-current="page" href="#">Home</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#for-sk">Toolbox</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#for-ab">About</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#for-co">Contact</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <section class="header-section d-flex align-items-center">
+        <div class="container">
+            <div class="text-center mb-4 for-heading">
+                <h1 class="fw-bold text-Secondary">Byte <span class="text-primary">Crafters.</span></h1>
+            </div>
+            <div class="row align-items-center">
+                <div class="col-md-6 text-center for-img ">
+                    <img  src="none3.png" alt="Profile Picture" class="profile-image">
+                </div>
+                <div class="col-md-6">
+                    <div class="about-section">
+                        <h2 class="text-center fw-bold text-primary">About Me</h2>
+                        <p ><i>🚀 Innovating, Learning, and Building the Future 💡 | Passionate about problem-solving, full-stack development & AI/ML | Turning ideas into reality, one line of code at a time.</i></p>
+                        <h4 class="text-center fw-bold">HTML || CSS || JS , Future loading....</h4>
+                    </div>
+                </div>
+            </div>
+            <div class="skills text-center">
+                <div class="solver">Problem Solver</div>
+                <div class="deep">Deep Thinker</div>
+                <div class="logic">Logic Cracker</div>
+                <div class="ai">AI Future Loading...</div>
+            </div>
+        </div>
+    </section>
+    <section class="sec1 text-center" id="for-sk">
+        <div class="skill-sec"><h2 class="fw-bold">SKILLS</h2></div>
+        <div class="container">
+            <div class="row justify-content-center">
+                <div class="col-md-6">
+                    <div class="skill-set">
+                        <div class="skill">
+                            <h4>HTML</h4>
+                            <div class="bar-container">
+                                <div class="bar" style="width: 90%"></div>
+                                <span class="percentage text-dark">90%</span>
+                            </div>
+                        </div>
+                        <div class="skill">
+                            <h4>CSS</h4>
+                            <div class="bar-container">
+                                <div class="bar" style="width: 85%"></div>
+                                <span class="percentage text-dark">85%</span>
+                            </div>
+                        </div>
+                        <div class="skill">
+                            <h4>JAVA SCRIPT</h4>
+                            <div class="bar-container">
+                                <div class="bar" style="width: 50%"></div>
+                                <span class="percentage text-dark">50%</span>
+                            </div>
+                        </div>
+                        <div class="skill">
+                            <h4>C</h4>
+                            <div class="bar-container">
+                                <div class="bar" style="width: 50%"></div>
+                                <span class="percentage text-dark">50%</span>
+                            </div>
+                        </div>
+                        <div class="skill">
+                            <h4>JAVA</h4>
+                            <div class="bar-container">
+                                <div class="bar" style="width: 35%"></div>
+                                <span class="percentage text-dark">35%</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <section class="sec2 d-flex justify-content-center align-items-center vh-100 bg-light text-center">
+        <div class="container">
+            <div class="row justify-content-center">
+    
+                
+                <div class="col-md-10 col-sm-12 mb-4" id="for-ab">
+                    <div class="card shadow-lg h-100 border-0 about-hover" style="transition: transform 0.3s;">
+                        <div class="card-body">
+                            <h3 class="fw-bold">ABOUT <span class="text-primary">ME.</span></h3>
+                            <p class="text-muted">Hi, I'm Jerin, an enthusiastic developer passionate about building creative and efficient web applications. I started my journey with Java and C, mastering OOP concepts and problem-solving. Now, I’m diving into front-end development with HTML, CSS, and JavaScript, aiming to become a full-stack developer. I’ve completed projects like a Booking.com clone and actively solve challenges on LeetCode. I’m excited about exploring React and backend technologies like Python or Golang. Beyond coding, I love bodybuilding and sharing my growth journey. I believe in continuous learning and pushing boundaries to innovate and inspire!
+
+                            </p>
+                        </div>
+                    </div>
+                </div>
+    
+                
+                <div class="col-md-5 col-sm-8 mb-4">
+                    <div class="card shadow-lg h-100 border-0 hover-shadow" style="transition: transform 0.3s;">
+                        <div class="card-body">
+                            <h3 class="fw-bold">BOOKING<span class="text-primary">.COM</span></h3>
+                            <a href="https://astrophile21.github.io/Booking.com/">
+                                <img src="Screenshot 2025-02-06 170505.png" class="img-fluid rounded hover-zoom" style="transition: transform 0.3s;" alt="My project">
+                            </a>
+                        </div>
+                    </div>
+                </div>
+    
+                
+                <div class="col-md-5 col-sm-8 mb-4">
+                    <div class="card shadow-lg h-100 border-0 hover-shadow" style="transition: transform 0.3s;">
+                        <div class="card-body">
+                            <h3 class="fw-bold">W3 <span class="text-primary">NAV</span></h3>
+                            <a href="https://jomyseb811.github.io/W3/">
+                                <img src="w3.jpg" class="img-fluid rounded hover-zoom" style="transition: transform 0.3s;" alt="w3 schools">
+                            </a>
+                        </div>
+                    </div>
+                </div>
+    
+            </div>
+        </div>
+    </section>
+    <section style=" background-color:#515d68 ; " class="bouncing-shapes d-flex justify-content-center align-items-center" style="position: relative; height: 150px; overflow: hidden;">
+        <!-- Circle -->
+        <div class="shape bg-white rounded-circle" style="width: 60px; height: 60px; position: absolute; opacity: 0.8; left: 20%; animation: float 5s ease-in-out infinite;"></div>
+    
+        <!-- Square -->
+        <div class="shape bg-warning" style="width: 50px; height: 50px; position: absolute; opacity: 0.8; left: 50%; animation: float 5s ease-in-out infinite 1s;"></div>
+    
+        <!-- Triangle -->
+        <div class="shape" style="
+            width: 0;
+            height: 0;
+            border-left: 30px solid transparent;
+            border-right: 30px solid transparent;
+            border-bottom: 50px solid #ffffff;
+            position: absolute;
+            opacity: 0.8;
+            left: 80%;
+            animation: float 5s ease-in-out infinite 2s;">
+        </div>
+    
+        
+    </section>
+    
+    
+    
+    <section class="sec3 d-flex justify-content-center align-items-center vh-100 bg-dark text-center" id="for-co">
+        <div class="container">
+            <h2 class="text-light fw-bold mb-4 display-4">Contact <span class="text-primary">Me!</span></h2>
+            <form id="contact-form" class="row g-3 text-light fw-bold">
+                <div class="col-md-6">
+                    <label for="mail" class="form-label">Name</label>
+                    <input type="text" class="form-control" name="name" id="name" style="background-color: #4a545d; border: none;" required>
+                </div>
+                <div class="col-md-6">
+                    <label for="phn" class="form-label">Email</label>
+                    <input type="mail" class="form-control" name="mail" id="mail" style="background-color: #4a545d; border: none;" required>
+                </div>
+                <div class="form-floating">
+                    <textarea style="height: 250px; background-color: #4a545d; border: none;" class="form-control text-dark" name="message1" placeholder="Leave a comment here" id="message" required></textarea>
+                    <label for="message">Comments</label>
+                </div>
+                <div class="col-12">
+                    <button type="button" onclick="sendMail()" class="btn btn-primary" >Connect Now</button>
+                </div>
+            </form>
+        </div>
+    </section>
+    
+
+<footer class="bg-black text-center py-4">
+    <div class="container">
+        <div class="d-flex justify-content-center align-items-center gap-4">
+   
+            <a href="https://www.linkedin.com/in/jerin-johny-012284347/" target="_blank">
+                <img src="https://cdn-icons-png.flaticon.com/512/174/174857.png" alt="LinkedIn" width="40" height="40">
+            </a>
+    
+            <a href="https://github.com/Astrophile21" target="_blank">
+                <img src="https://cdn-icons-png.flaticon.com/512/733/733553.png" alt="GitHub" width="40" height="40">
+            </a>
+           
+            <a style="text-decoration: none;" href="https://www.codewars.com/users/Astrophile21" target="_blank">
+                <h4 class="fw-bold">Code Wars</h4>
+            </a>
+        </div>
+        <p class="text-light mt-3 mb-0">&copy; 2025 Jerin's Portfolio. All rights reserved.</p>
+    </div>
+</footer>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"> </script>
+    <script src="https://cdn.jsdelivr.net/npm/emailjs-com@3/dist/email.min.js"></script>
+    
+
+</body>
+
+</html>
